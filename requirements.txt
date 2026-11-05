@@ -1,1 +1,8 @@
-bless
+# Linux / macOS
+bless; sys_platform != "win32"
+
+# Windows: nur mit Python 3.11 lauffähig (siehe README)
+bless==0.2.6; sys_platform == "win32"
+bleak>=0.21,<0.22; sys_platform == "win32"
+bleak-winrt>=1.2.0; sys_platform == "win32"
+pysetupdi @ git+https://github.com/gwangyi/pysetupdi@4b48c1da115f571e82876ee7659e78ec4d1e2ae9; sys_platform == "win32"
