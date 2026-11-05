@@ -62,7 +62,26 @@ py -V:3.11 -m venv .venv
 Liegt das Repo in OneDrive, die venv besser außerhalb anlegen (z. B. `C:\dev\venvs\eaas-archiv`),
 damit OneDrive nicht tausende Dateien synchronisiert.
 
-Die Konsole zeigt jede eingegangene Anfrage und die gelieferte Formel:
+### Behörden-UI (Terminal)
+
+```bash
+python -m archiv.ui          # mit Bluetooth
+python -m archiv.ui --demo   # Übungsbetrieb: simuliert Anfragen, ohne Bluetooth
+```
+
+Das **Bundesamt für Dämonenangelegenheiten** zeigt live:
+- Aktenregister mit allen Anträgen (QUERY), Bescheiden (RESULT) und Stempeln
+  `GENEHMIGT`, `UNBEKANNT`, `FORMFEHLER` und `UNZULÄSSIG`
+- Den aktuellen Bescheid als Amtsschreiben und ob er schon abgeholt (gelesen) wurde
+- Formelverzeichnis, Geschäftsstatistik und amtliche Hinweise
+
+Das Layout passt sich der Fenstergröße an; ab etwa 135×40 Zeichen ist alles sichtbar.
+Hängt der Bluetooth-Start (z. B. weil schon ein Archiv läuft), meldet die UI nach
+15 Sekunden eine **STÖRUNG**. Es darf immer nur ein Archiv gleichzeitig laufen.
+
+### Konsolenprotokoll
+
+`python -m archiv.server` zeigt jede eingegangene Anfrage und die gelieferte Formel als Textprotokoll:
 
 ```
 [10:42:01] QUERY  '01:D1'                  D1 = Toastifer -> Formel AQUA

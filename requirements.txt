@@ -1,3 +1,6 @@
+# Terminal-UI (python -m archiv.ui)
+rich
+
 # Linux / macOS
 bless; sys_platform != "win32"
 
